@@ -41,7 +41,7 @@ public class pa1
         
         System.out.println("Time: " + totalTime + "nanoseconds");
         System.out.println("Count: " + count + " primes");
-        System.out.println("Sums: " + sum);
+        System.out.println("Sum: " + sum);
     }
 }
 
@@ -62,7 +62,7 @@ class MultithreadThing implements Runnable {
     @Override
     public void run() 
     {
-        //System.out.println("this is thread " + threadNum);
+        System.out.println("this is thread " + threadNum);
 
         int sum = 0;
         int n = (int)Math.pow(10, 8) / 8;
@@ -75,10 +75,13 @@ class MultithreadThing implements Runnable {
         for (int i = start; i * i <= n * 8; i++)
         {
             // if at prime
+            if (prime[i].get() == false)
+                System.out.println("false");
+            
             if (prime[i].get() == true)
             {
                 // marks primes of multiples
-                for (int j = i * i; j <= finish; j += i)
+                for (int j = i * i; j <= n * 8; j += i)
                 {
                     prime[j].set(false);
                     System.out.println("marking " + j + " true");
@@ -86,14 +89,6 @@ class MultithreadThing implements Runnable {
             }
         }
 
-        
-
-
-
-        // try 
-        // { 
-        // } catch (InterruptedException e) {      
-        // }
 
     }
 }
