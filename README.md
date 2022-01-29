@@ -8,4 +8,4 @@ java p1.java
 
 
 
-My approach was to split up the range of numbers for the algorithms to mark off. This was done by splitting the 10^8 by 8 and giving each of the 8 threads a range to mark through. This approach didn't work because the algorithm works off of sequential markings from past numbers. Without this, the algorithm doesn't know which prime number to use next and fails to mark off anything.
+My approach was to split up the range of numbers for the algorithms to mark off. This was done by splitting the 10^8 by 8 and giving each of the 8 threads a range to mark through. This approach didn't work because the algorithm works off of sequential markings from past numbers. Without this, the algorithm doesn't know which prime number to use next and fails to mark off anything. Eight threads are created but don't successfully mark off numbers because the first primes are never found
